@@ -1,69 +1,101 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FeatureCard } from "@/components/feature-card";
+import { Reveal } from "@/components/reveal";
 
-export default function Home() {
+const differences = [
+  {
+    icon: "innovation",
+    title: "Innovation First",
+    description: "We bring fresh ideas and innovative thinking to every project.",
+  },
+  {
+    icon: "client",
+    title: "Client-Centered Approach",
+    description: "We understand client requirements and build solutions around their goals.",
+  },
+  {
+    icon: "technology",
+    title: "Modern Technology",
+    description: "We use advanced and modern technologies to create intelligent digital solutions.",
+  },
+  {
+    icon: "quality",
+    title: "Quality & Reliability",
+    description: "We focus on quality, performance, and reliable results.",
+  },
+  {
+    icon: "creative",
+    title: "Creative Excellence",
+    description: "We combine creativity and technology to deliver meaningful digital experiences.",
+  },
+  {
+    icon: "future",
+    title: "Future-Ready Solutions",
+    description: "We build scalable solutions designed for tomorrow’s challenges.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main id="home" className="homepage">
+      <section className="home-hero" aria-labelledby="hero-title">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          className="home-hero-photo"
+          src="/nexzora-hero.webp"
+          alt="A blue-lit creative technology workspace with a laptop and camera"
+          aria-hidden="true"
+          fill
           priority
+          sizes="100vw"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <div className="home-hero-overlay" aria-hidden="true" />
+        <div className="home-hero-content">
+          <Reveal className="home-hero-copy">
+            <span className="home-eyebrow"><i /> Welcome to Nexzora Solution</span>
+            <h1 id="hero-title">Turning Innovative Ideas Into <span>Powerful Digital Solutions.</span></h1>
+            <p className="home-hero-description">We transform ideas into intelligent digital experiences through innovation, creativity, and advanced technology.</p>
+            <p className="home-hero-tagline">Your Vision, Our Innovation.</p>
+            <div className="home-hero-actions">
+              <Link className="home-button home-button-primary" href="/services">Explore Our Services <span aria-hidden="true">↗</span></Link>
+              <Link className="home-button home-button-outline" href="/contact">Let’s Discuss Your Project</Link>
+            </div>
+          </Reveal>
+          <div className="hero-image-caption" aria-hidden="true"><span className="caption-line" /> DIGITAL EXPERIENCES · BUILT WITH INTENTION</div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="home-vision" aria-labelledby="vision-title">
+        <div className="vision-inner">
+          <Reveal className="vision-label"><span className="home-section-index">01</span><span>Our Vision</span></Reveal>
+          <Reveal className="vision-copy" delay={0.08}>
+            <span className="vision-overline">Looking forward</span>
+            <h2 id="vision-title">A trusted partner for <span>what comes next.</span></h2>
+            <p>To become a trusted technology partner recognized for innovation, creativity, and excellence in delivering future-ready digital solutions.</p>
+          </Reveal>
+          <Reveal className="vision-aside" delay={0.16}>
+            <div className="vision-orbit" aria-hidden="true"><span /><i /></div>
+            <span>Ideas made<br />for tomorrow.</span>
+          </Reveal>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="difference-section" aria-labelledby="difference-title">
+        <div className="difference-inner">
+          <Reveal className="difference-heading">
+            <span className="home-eyebrow"><i /> The Nexzora difference</span>
+            <h2 id="difference-title">What Makes Us <span>Different</span></h2>
+            <p>At Nexzora Solution, we combine innovation, technology, and creativity to deliver solutions that make a real difference.</p>
+          </Reveal>
+          <div className="feature-grid">
+            {differences.map((item, index) => (
+              <Reveal key={item.title} delay={(index % 3) * 0.07}>
+                <FeatureCard index={String(index + 1).padStart(2, "0")} {...item} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
